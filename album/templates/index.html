@@ -64,10 +64,25 @@
         </nav>
     </div>
     <div class="pho">
+
     <p class="h2 text-center txt-pho">Pho-Galleria</p>
     <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br> Laudantium totam voluptate voluptates nemo fugit.</p>
 
     </div>      
 </div>
-<p class="text-center">Gallery</p>
+<p class="text-center txt-pho my-3">Gallery</p>
+<div class="container">
+    
+    <div class="row ">
+      {% for pho in photos_album %}
+
+      <div class="col-md-3 my-3">
+        <img src="{{pho.photo.url}}" class="img-responsive img-fluid" alt="Image">
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+</div>
 {% endblock %}
