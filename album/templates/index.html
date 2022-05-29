@@ -43,7 +43,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               {% for pho in photos_album %}
 
-                              <li><a class="dropdown-item " href="#">{{pho.location}}</a></li>
+                              <li><a class="dropdown-item " href="{% url 'filterLocation' pho.location %}">{{pho.location}}</a></li>
                               {% endfor %}
     
                             </ul>

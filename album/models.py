@@ -93,8 +93,10 @@ class Image(models.Model):
         img=cls.objects.filter(category__name=category)
         return img
 
-    def filter_by_location(location):
+    @classmethod
+    def filter_by_location(cls, location):
         """
         Filter the images by location
         """
-        Image.objects.filter(location__name=location)
+        img=cls.objects.filter(location__name=location)
+        return img
