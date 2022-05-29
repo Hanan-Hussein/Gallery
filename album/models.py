@@ -10,6 +10,24 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    def save_location(self):
+        """
+        saves location
+        """
+        self.save()
+
+    def delete_location(self):
+        """
+        deletes location
+        """
+        self.delete()
+
+    def update_location(self, name):
+        """
+        updates location
+        """
+        self.update(name=name)
+
 
 class Category(models.Model):
     """
@@ -60,3 +78,20 @@ class Image(models.Model):
     def save_photo(self):
         """Saves image"""
         self.save()
+    def get_image_id(id):
+        """
+        fetch image by id
+        """
+        Image.objects.all().filter(id=id).first()
+    def search_image(category):
+        """
+        search for an image by category
+        """
+        Image.objects.filter(category__name=category)
+
+    def filter_by_location(location):
+        """
+        Filter the images by location
+        """
+        Image.objects.filter(location__name=location)
+        
