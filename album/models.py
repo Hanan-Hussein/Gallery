@@ -78,20 +78,23 @@ class Image(models.Model):
     def save_photo(self):
         """Saves image"""
         self.save()
+
     def get_image_id(id):
         """
         fetch image by id
         """
         Image.objects.all().filter(id=id).first()
-    def search_image(category):
+
+    @classmethod
+    def search_image(cls, category):
         """
         search for an image by category
         """
-        Image.objects.filter(category__name=category)
+        img=cls.objects.filter(category__name=category)
+        return img
 
     def filter_by_location(location):
         """
         Filter the images by location
         """
         Image.objects.filter(location__name=location)
-        

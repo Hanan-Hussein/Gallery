@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <p class="text-center my-5">Nature</p>
+        <p class="text-center my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+             Ipsam blanditiis libero corporis amet dicta!</p>
+
+        <p class="h5 text-center">~ Venessa Hugo</p>
+
+        <div class="row">
+            {% for pho in photos_album %}
+
+            <div class="col-md-4 my-3">
+                <img src="{{pho.photo.url}}" class="img-responsive img-fluid" alt="Image">
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
