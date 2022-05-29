@@ -20,7 +20,24 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    
+    def save_category(self):
+        """
+        saves category
+        """
+        self.save()
+
+    def delete_category(self):
+        """
+        deletes category
+        """
+        self.delete()
+
+    def update_category(self, name):
+        """
+        updates category
+        """
+        self.update(name=name)
+
 
 class Image(models.Model):
 
@@ -37,7 +54,9 @@ class Image(models.Model):
         return f"Photo: {self.name} : description: {self.description} : location: {self.location.name} : category: {self.category.name}"
 
     def delete_photo(self):
+        """Deletes a photo"""
         self.delete()
 
     def save_photo(self):
+        """Saves image"""
         self.save()
