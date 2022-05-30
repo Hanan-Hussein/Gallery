@@ -76,9 +76,9 @@
       {% for pho in photos_album %}
 
       <div class="col-md-3 my-3">
-        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-          <img src="{{pho.photo.url}}"  class="img-responsive img-fluid" alt="Image">
-        </a>
+          <img src="{{pho.photo.url}}"  class="img-responsive img-fluid" alt="Image"
+          onclick="showModal('{{pho.name}},{{pho.description}},{{pho.category}},{{pho.location}},{{pho.photo.url}}')"
+          >
       </div>
       {% endfor %}
 
@@ -94,11 +94,6 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        {% for pho in photos_album %}
-
-        <img src="{{pho.photo.url}}"  class="img-responsive img-fluid" alt="Image">
-        {% endfor %}
-
         <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
 
 
@@ -107,7 +102,10 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <img src="" id="photo" class="img-responsive img-fluid" alt="">
+        <p id="description"></p>
+        <p id="location"></p>
+        <p id="category"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
