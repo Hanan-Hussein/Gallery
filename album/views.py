@@ -13,10 +13,14 @@ def landing(request):
 def filter_category(request, category):
     photos_album=Image.search_image(category)
     category=category
+    categories=Category.objects.all()
+    location=Location.objects.all()
  
-    return render(request,'category_image.html',{"photos_album":photos_album,"category":category})
+    return render(request,'category_image.html',{"photos_album":photos_album,"category":category, "categories":categories,"location":location})
 
 def filter_location(request, location):
-    photos_album=Image.filter_by_location(location)
+    photos_album=Image.filter_by_location(location)    
+    category=Category.objects.all()
+    locations=Location.objects.all()
     location=location
-    return render(request,'location_image.html',{"photos_album":photos_album,"location":location})
+    return render(request,'location_image.html',{"photos_album":photos_album,"location":location, "category":category,"locations":locations})
