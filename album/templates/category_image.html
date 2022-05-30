@@ -3,8 +3,65 @@
 {% block content %}
 
     <div class="container">
+        <nav class="navbar ">
+          
+            <a class="navbar-brand" href="{%url 'Welcome'%}">
+                <p class="d-inline-block logoText text-dark fst-italic">Pho-Galleria
+                </p>
+            </a>
+            <nav class="navbar navbar-expand-lg ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <form class="form-inline my-2 my-lg-0 searchSpacing mx-5">
+                        <input class="form-control mr-sm-2 input-field  searchbar text-center" type="search" placeholder="Search for a category" 
+                            aria-label="Search" [(ngModel)]="searchText" name="searchText">
+                    </form>
 
-        <p class="text-center my-5 h4">{{category}}</p>
+                    <ul class="navbar-nav mx-5">
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Category
+                            </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                              {% for cat in categories %}
+
+                              <li><a class="dropdown-item " href="{% url 'filterCategory' cat.name %}">{{cat.name}}</a></li>
+                              {% endfor %}
+
+                            </ul>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Location
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              {% for location in location %}
+
+                              <li><a class="dropdown-item " href="{% url 'filterLocation' location.name %}">{{location.name}}</a></li>
+                              {% endfor %}
+    
+                            </ul>
+                          </li>
+                          
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" routerLink="/booklist" routerLinkActive="active">Books</a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" routerLink="/bookrequest" routerLinkActive="active">Book Request</a>
+                        </li> -->
+                            </ul>
+        
+                </div>
+               
+            </nav>
+        </nav>
+        <p class="text-center my-5 h4">{{category}} Photography</p>
         <p class="text-center my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
              Ipsam blanditiis libero corporis amet dicta!</p>
 
