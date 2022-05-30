@@ -91,7 +91,7 @@ class Image(models.Model):
         """
         search for an image by category
         """
-        img = cls.objects.filter(category__name=category)
+        img = cls.objects.filter(category__icontains=category)
         return img
 
     @classmethod
@@ -101,3 +101,5 @@ class Image(models.Model):
         """
         img = cls.objects.filter(location__name=location)
         return img
+
+    

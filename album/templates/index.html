@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <form class="form-inline my-2 my-lg-0 searchSpacing mx-5">
                         <input class="form-control mr-sm-2 input-field  searchbar text-center" type="search" placeholder="Search for a category" 
-                            aria-label="Search" [(ngModel)]="searchText" name="searchText">
+                            aria-label="Search" name="searchText">
                     </form>
 
                     <ul class="navbar-nav mx-5">
@@ -101,7 +101,7 @@
                 <p id="description" class="text-center">{{pho.description}}</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary copy">Copy image link</button>
+                <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <p class="Input">{{pho.photo.url}}</p>
 
