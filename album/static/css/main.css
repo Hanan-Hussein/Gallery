@@ -3,25 +3,45 @@
     padding: 0px;
     box-sizing: border-box
 }
-.testing{
-    color:brown;
+
+.testing {
+    color: brown;
 }
-.bg{
+
+.bg {
     background-image: url('../landing.png');
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
 }
-.pho{
+
+.pho {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.txt-pho{
+
+.txt-pho {
     letter-spacing: 0.7rem;
 
 }
-.searchbar{
+
+.searchbar {
     border-radius: 0.7rem;
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.close {
+
+    opacity: 1;
+    border:none !important;
+    transition: background 0.2s ease-in-out;
+    background: none;
+    font-size: 24px;
+
 }

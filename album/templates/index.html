@@ -90,11 +90,19 @@
               </div>
               <div class="modal-body">
                 <img src="{{pho.photo.url}}" id="" class="img-responsive img-fluid" alt="">
-                <p id="description">{{pho.description}}</p>
-                <p id="location">{{pho.location}}</p>
-                <p id="category">{{pho.category}}</p>
+               <div class="d-flex  justify-content-between my-1">
+                <p id="location" class="text-muted">{{pho.location}}</p>
+                <div>
+                  <p id="category" class="text-muted">{{pho.category}}</p>
+
+                </div>
+
+               </div>
+                <p id="description" class="text-center">{{pho.description}}</p>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Copy image link</button>
+
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
