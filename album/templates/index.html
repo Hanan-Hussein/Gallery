@@ -29,9 +29,9 @@
                               Category
                             </a>
                             <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                              {% for pho in photos_album %}
+                              {% for cat in category %}
 
-                              <li><a class="dropdown-item " href="{% url 'filterCategory' pho.category %}">{{pho.category}}</a></li>
+                              <li><a class="dropdown-item " href="{% url 'filterCategory' cat.name %}">{{cat.name}}</a></li>
                               {% endfor %}
 
                             </ul>
@@ -41,9 +41,9 @@
                               Location
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              {% for pho in photos_album %}
+                              {% for location in location %}
 
-                              <li><a class="dropdown-item " href="{% url 'filterLocation' pho.location %}">{{pho.location}}</a></li>
+                              <li><a class="dropdown-item " href="{% url 'filterLocation' location.name %}">{{location.name}}</a></li>
                               {% endfor %}
     
                             </ul>

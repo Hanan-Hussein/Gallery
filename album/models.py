@@ -56,6 +56,7 @@ class Category(models.Model):
         """
         self.update(name=name)
 
+   
 
 class Image(models.Model):
 
@@ -90,7 +91,7 @@ class Image(models.Model):
         """
         search for an image by category
         """
-        img=cls.objects.filter(category__name=category)
+        img = cls.objects.filter(category__name=category)
         return img
 
     @classmethod
@@ -98,5 +99,5 @@ class Image(models.Model):
         """
         Filter the images by location
         """
-        img=cls.objects.filter(location__name=location)
+        img = cls.objects.filter(location__name=location)
         return img
