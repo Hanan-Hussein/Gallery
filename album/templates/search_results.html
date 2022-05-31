@@ -4,7 +4,7 @@
 <div class="container">
     <nav class="navbar ">
         <a class="navbar-brand" href="{%url 'Welcome'%}">
-            <p class="d-inline-block logoText text-dark fst-italic">Pho-Galleria
+            <p class="d-inline-block logoText text-dark fst-italic">H&J-Galleria
             </p>
         </a>
         <nav class="navbar navbar-expand-md navbar-light">
@@ -57,7 +57,10 @@
         {% if categories %}
         <h4>Found {{ categories|length }} items in {{message}}</h4>
         {% else %}
-        <h5 class="text-center my-4">Found 0 items </h5>
+        <div class="results d-flex justify-content-center align-items-center">
+          <img src="../static/noresults.gif" class="img-fluid img-responsive"   alt=""> 
+
+        </div>
         {% endif %}
     </div>
     
@@ -94,9 +97,10 @@
                   <p id="description" class="text-center">{{cat.description}}</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
+                  <button type="button" class="btn btn-secondary copy" id="{{cat.id}}">Copy image link</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <p class="Input">{{cat.photo.url}}</p>
+                  <div class="Input" id="image-{{cat.id}}" >{{cat.photo.url}}</div>
+                  
   
                 </div>
               </div>

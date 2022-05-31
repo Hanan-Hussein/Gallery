@@ -6,7 +6,7 @@
         <nav class="navbar ">
           
             <a class="navbar-brand" href="{%url 'Welcome'%}">
-                <p class="d-inline-block logoText text-dark fst-italic">Pho-Galleria
+                <p class="d-inline-block logoText text-dark fst-italic">H&J-Galleria
                 </p>
             </a>
             <nav class="navbar navbar-expand-md navbar-light">
@@ -96,9 +96,9 @@
                       <p id="description" class="text-center">{{pho.description}}</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <p class="Input">{{pho.photo.url}}</p>
+                      <button type="button" class="btn btn-secondary copy "id="{{pho.id}}">Copy image link</button>
+                      <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+                      <div class="Input" id="image-{{pho.id}}" >{{pho.photo.url}}</div>
       
                     </div>
                   </div>

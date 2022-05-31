@@ -61,7 +61,12 @@
     transform: scale(1)!important;
     transform:none;
   } */
+.results{
+    
+    height: 80vh;
 
+
+}
   .Input{
       display: none;
   }
