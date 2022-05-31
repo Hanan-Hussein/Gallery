@@ -14,7 +14,6 @@ import os
 import django_on_heroku
 import dj_database_url
 from decouple import config,Csv
-# from djangoconfig import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,9 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = ['<your-app-name>.herokuapp.com', '127.0.0.1']
+DEBUG = os.environ.get('DEBUG', False)
 
 # Application definition
 
@@ -88,7 +85,7 @@ if config('MODE')=="dev":
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django.db.backends.postgresql_pyscope2',
             'NAME': config('DB_NAME'),
             'USER':config('DB_USER'),
             'PASSWORD':config('DB_PASSWORD'),
@@ -105,6 +102,8 @@ else:
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+DEBUG = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
