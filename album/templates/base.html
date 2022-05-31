@@ -39,34 +39,17 @@
     crossorigin="anonymous"></script>
         
     <script>
-     
-        function Hello() {
-          var copyText = document.getElementsByClassName('Input')
-          copyText.select();
-          document.execCommand('copy')
-          console.log('Copied Text')
-        }
-
-        //for(let i = 0; i < clicks.length; i++){
-          //  clicks[i].addEventListener('click', () =>{
-            //let myCode = document.getElementsByClassName('Input');
-          //  let fullLink = document.createElement('input');
-            //fullLink.value = "http://127.0.0.1:8000" + myCode[i].innerHTML;
-            //document.body.appendChild(fullLink);
-            //document.fullLink.execCommand('copy')
-            //console.log(fullLink)
+      clicks = document.querySelectorAll('.copy')
+        
+      for(let i = 0; i < clicks.length; i++){
+          clicks[i].addEventListener('click', () =>{
+          let imageId = clicks[i].getAttribute('id')
+          var source = document.querySelector(`div#image-${imageId}`);
+          navigator.clipboard.writeText("http://127.0.0.1:8000"+source.innerHTML);
+          alert("Link copied successfully")
+          })}
 
 
-            //fullLink.addEventListener("copy",function(e){
-              //  e.preventDefault();
-               //if (e.clipboardData){
-                 //  e.clipboardData.setData("text/plain",fullLink.textContent);
-                   //console.log(e.clipboardData.getData("text"))
-               //}
-
-            //})
-   //})
-//}
 
        </script>    
     {% endblock %}

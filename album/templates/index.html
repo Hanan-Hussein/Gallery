@@ -103,10 +103,9 @@
                 <p id="description" class="text-center">{{pho.description}}</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
+                <button type="button" class="btn btn-secondary copy" id="{{pho.id}}"  >Copy image link</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <p class="Input">{{pho.photo.url}}</p>
-
+                <div class="Input" id="image-{{pho.id}}" >{{pho.photo.url}}</div>
               </div>
             </div>
           </div>

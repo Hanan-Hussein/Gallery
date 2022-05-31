@@ -17,9 +17,9 @@
         
         
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <form class="form-inline my-2 my-lg-0 searchSpacing mx-5">
+                    <form action="{% url 'searchResults' %}"  class="form-inline my-2 my-lg-0 searchSpacing mx-5">
                         <input class="form-control mr-sm-2 input-field  searchbar text-center" type="search" placeholder="Search for a category" 
-                            aria-label="Search" [(ngModel)]="searchText" name="searchText">
+                            aria-label="Search" name="category">
                     </form>
 
                     <ul class="navbar-nav mx-5">
@@ -65,14 +65,50 @@
         <p class="text-center my-4">Photography is a way of feeling, of touching, of loving. <br>
             What you have caught on film is captured forever… It remembers little things, long after you have forgotten everything</p>
 
-        <p class="h5 text-center">~ Aaron Siskind</p>
+        <p class="h5 text-center text-muted">~ Aaron Siskind</p>
 
         <div class="row">
             {% for pho in photos_album %}
 
             <div class="col-md-4 my-3">
-                <img src="{{pho.photo.url}}" class="img-responsive img-fluid" alt="Image">
+                <a ><img src="{{pho.photo.url}}"  data-bs-toggle="modal" data-bs-target="#modal{{pho.id}}" class="img-responsive img-fluid" alt="Image" id="image-url" >
+                </a>  
             </div>
+            <div class="modal fade zoom-in" id="modal{{pho.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="name">{{pho.name}}</h5>
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="{{ pho.photo.url }}" id="" class="img-responsive img-fluid" alt="">
+                     <div class="d-flex  justify-content-between my-1">
+                      <p id="location" class="text-muted">{{pho.location}}</p>
+                      <div>
+                        <p id="category" class="text-muted">{{pho.category}}</p>
+      
+                      </div>
+      
+                     </div>
+                      <p id="description" class="text-center">{{pho.description}}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <p class="Input">{{pho.photo.url}}</p>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <div class="row my-5">
+                  <h2 class="text-center">There's No Images in this location</h2>
+                  
+              </div>
             {% endfor %}
 
         </div>
