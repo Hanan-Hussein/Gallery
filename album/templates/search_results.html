@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <nav class="navbar ">
+          
+        <a class="navbar-brand" href="{%url 'Welcome'%}">
+            <p class="d-inline-block logoText text-dark fst-italic">Pho-Galleria
+            </p>
+        </a>
+        <nav class="navbar navbar-expand-lg ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="form-inline my-2 my-lg-0 searchSpacing mx-5">
+                    <input class="form-control mr-sm-2 input-field  searchbar text-center" type="search" placeholder="Search for a category" 
+                        aria-label="Search" [(ngModel)]="searchText" name="searchText">
+                </form>
+
+                <ul class="navbar-nav mx-5">
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Category
+                        </a>
+                        <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                          {% for cat in categories %}
+
+                          <li><a class="dropdown-item " href="{% url 'filterCategory' cat.name %}">{{cat.name}}</a></li>
+                          {% endfor %}
+
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Location
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          {% for location in location %}
+
+                          <li><a class="dropdown-item " href="{% url 'filterLocation' location.name %}">{{location.name}}</a></li>
+                          {% endfor %}
+
+                        </ul>
+                      </li>
+                      
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/booklist" routerLinkActive="active">Books</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/bookrequest" routerLinkActive="active">Book Request</a>
+                    </li> -->
+                        </ul>
+    
+            </div>
+           
+        </nav>
+    </nav>
+    <!-- <p class="text-center mt-5 h4">{{category}} Photography</p>
+    <p class="text-center my-4">When words become unclear, I shall focus with photographs.<br>
+        When images become inadequate, I shall be content with silence.</p>
+
+    <p class="h5 text-center">~ Ansel Adams</p> -->
+    <div class="row">
+        {% if categories %}
+        <h2>Found {{ categories|length }} of searched term {{message}} category</h2>
+        {% else %}
+        <h5 class="text-center my-4">Found 0 articles for the search term {{message}} </h5>
+        {% endif %}
+    </div>
+    <div class="row my-5">
+      {% if categories %}
+      {% for cat in categories %}
+
+      <div class="col-md-4 my-3">
+        <a ><img src="{{cat.photo.url}}"  data-bs-toggle="modal" data-bs-target="#modal{{pho.id}}" class="img-responsive img-fluid" alt="Image" id="image-url" >
+        </a>
+            </div>
+            <div class="modal fade zoom-in" id="modal{{pho.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="name">{{cat.name}}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <img src="{{ cat.photo.url }}" id="" class="img-responsive img-fluid" alt="">
+                   <div class="d-flex  justify-content-between my-1">
+                    <p id="location" class="text-muted">{{cat.location}}</p>
+                    <div>
+                      <p id="category" class="text-muted">{{cat.category}}</p>
+    
+                    </div>
+    
+                   </div>
+                    <p id="description" class="text-center">{{cat.description}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary copy onclick="Hello()">Copy image link</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <p class="Input">{{cat.photo.url}}</p>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</div>
+    
+{% endblock %}

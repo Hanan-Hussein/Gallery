@@ -9,7 +9,7 @@ urlpatterns=[
     path('',views.landing, name='Welcome'),
     path('category/<category>/',views.filter_category, name='filterCategory'),
     path('location/<location>/',views.filter_location, name='filterLocation'),
-    path('search/',views.search_results,name='search_results')
+    path('search/',views.search_results,name='searchResults')
 
 ]
 if settings.DEBUG:
