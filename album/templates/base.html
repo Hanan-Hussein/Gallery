@@ -45,7 +45,7 @@
           clicks[i].addEventListener('click', () =>{
           let imageId = clicks[i].getAttribute('id')
           var source = document.querySelector(`div#image-${imageId}`);
-          navigator.clipboard.writeText("http://127.0.0.1:8000"+source.innerHTML);
+          navigator.clipboard.writeText("https://hjgallery.herokuapp.com/"+source.innerHTML);
           alert("Link copied successfully")
           })}
 
