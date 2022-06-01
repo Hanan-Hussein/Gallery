@@ -2,6 +2,9 @@
 ### By Hanan Hussein
 ### [Live Site](https://hjgallery.herokuapp.com/) 
 
+
+<img width="1440" alt="Screenshot 2022-06-01 at 12 00 20" src="https://user-images.githubusercontent.com/36597096/171379420-92f42c14-46eb-439a-9202-ff2aee2a0eb3.png">
+
 ## Description 
 This is a monochromatic collection of photos where users can view the images, copy image link, search by category and filter by location
 
