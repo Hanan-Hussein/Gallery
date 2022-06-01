@@ -80,11 +80,13 @@ class Image(models.Model):
         """Saves image"""
         self.save()
 
+    @classmethod
     def get_image_id(id):
         """
         fetch image by id
         """
-        Image.objects.all().filter(id=id).first()
+        img= Image.objects.all().filter(id=id).first()
+        return img
 
     @classmethod
     def search_image(cls, category):
